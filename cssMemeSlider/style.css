@@ -80,7 +80,6 @@ p {
   align-items: center;
   border-radius: 2em;
   box-shadow: 0px 3px 20px 0px rgba(64, 219, 96, 0.4);
-  
 }
 
 .slides {
@@ -193,17 +192,20 @@ label:hover {
 
 @media (max-width: 480px) {
   .bottom {
-    gap: .8em;
+    gap: 0.8em;
   }
   p {
     font-size: 1.2em;
-}
-.btn {
-  width: .8em;
-  height: .8em;
-}
-label {
-  width: 1.5em;
-  height: 2em;
-}
+  }
+  .btn {
+    width: 0.8em;
+    height: 0.8em;
+  }
+  label {
+    width: 1.5em;
+    height: 2em;
+  }
+  .wrapper {
+    margin: 8em auto 0;
+  }
 }
