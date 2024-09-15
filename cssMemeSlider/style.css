@@ -63,14 +63,23 @@ p {
 .title {
   display: flex;
   align-items: center;
+  /* scroll-snap-type: x mandatory;
+  overflow-x: auto; */
 }
+
+/* .title > p {
+  scroll-snap-align: start;
+  flex: none;
+} */
 
 .text1,
 .text2,
 .text3,
+.text4,
 .slide1,
 .slide2,
-.slide3 {
+.slide3,
+.slide4 {
   opacity: 0;
 }
 
@@ -106,20 +115,84 @@ p {
   background-image: url(img/image-3.jpg);
 }
 
+.slide4 {
+  background-image: url(img/image-4.jpg);
+}
+
 #slide1:checked ~ .slider > .slide1,
 #slide2:checked ~ .slider > .slide2,
 #slide3:checked ~ .slider > .slide3,
+#slide4:checked ~ .slider > .slide4,
 #slide1:checked ~ .bottom > .title > .text1,
 #slide2:checked ~ .bottom > .title > .text2,
-#slide3:checked ~ .bottom > .title > .text3 {
+#slide3:checked ~ .bottom > .title > .text3,
+#slide4:checked ~ .bottom > .title > .text4 {
   opacity: 1;
   flex-shrink: 0;
   transition: all 0.5s cubic-bezier(0, 0, 1, 1);
+
 }
+
+/* наркомания */
+
+#slide1:checked ~ .bottom > .title > .text1 {
+  order: 1;
+}
+
+#slide1:checked ~ .bottom > .title > .text2 {
+  order: 2;
+}
+
+#slide1:checked ~ .bottom > .title > .text3 {
+  order: 3;
+}
+
+#slide1:checked ~ .bottom > .title > .text4 {
+  order: 4;
+}
+
+#slide2:checked ~ .bottom > .title > .text3 {
+  order: 2;
+}
+
+#slide2:checked ~ .bottom > .title > .text4 {
+  order: 3;
+}
+
+#slide2:checked ~ .bottom > .title > .text1 {
+  order: 4;
+}
+
+#slide3:checked ~ .bottom > .title > .text4 {
+  order: 2;
+}
+
+#slide3:checked ~ .bottom > .title > .text1 {
+  order: 3;
+}
+
+#slide3:checked ~ .bottom > .title > .text2 {
+  order: 4;
+}
+
+#slide4:checked ~ .bottom > .title > .text1 {
+  order: 2;
+}
+
+#slide4:checked ~ .bottom > .title > .text2 {
+  order: 3;
+}
+
+#slide4:checked ~ .bottom > .title > .text3 {
+  order: 4;
+}
+
+/* /наркомания */
 
 #slide1:checked ~ .bottom > .controls > label.controls-btn1 > .btn,
 #slide2:checked ~ .bottom > .controls > label.controls-btn2 > .btn,
-#slide3:checked ~ .bottom > .controls > label.controls-btn3 > .btn {
+#slide3:checked ~ .bottom > .controls > label.controls-btn3 > .btn,
+#slide4:checked ~ .bottom > .controls > label.controls-btn4 > .btn {
   background-color: transparent;
 }
 
