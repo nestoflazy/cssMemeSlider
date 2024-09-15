@@ -9,7 +9,7 @@
 
 html {
   scroll-behavior: smooth;
-  transition: 0.3s;
+  transition: all 0.5s;
 }
 
 body {
@@ -158,6 +158,22 @@ label:hover {
 }
 
 /* media */
+
+@media (max-width: 960px) {
+  .wrapper {
+    padding: 0 1em;
+  }
+  .container {
+    padding: 1.5em 1.5em 4em;
+  }
+  .bottom {
+    flex-direction: column-reverse;
+    gap: 1em;
+  }
+  p {
+    font-size: 1.7em;
+  }
+}
 
 @media (max-width: 768px) {
   .wrapper {
