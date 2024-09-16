@@ -263,7 +263,7 @@ label:hover {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 570px) {
   .bottom {
     gap: 0.8em;
   }
