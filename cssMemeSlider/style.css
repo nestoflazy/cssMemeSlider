@@ -186,11 +186,21 @@ p {
 
 /* /наркомания */
 
+
 #slide1:checked ~ .bottom > .controls > label.controls-btn1 > .btn,
 #slide2:checked ~ .bottom > .controls > label.controls-btn2 > .btn,
 #slide3:checked ~ .bottom > .controls > label.controls-btn3 > .btn,
 #slide4:checked ~ .bottom > .controls > label.controls-btn4 > .btn {
   background-color: transparent;
+}
+
+label .btn {
+  transition: opacity 10s;
+}
+
+label:active .btn{
+  opacity: .3;
+  transition: opacity 0s;
 }
 
 input {
