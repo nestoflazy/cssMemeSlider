@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: all 0.5s;
+}
+
+body {
+  font-family: Arial, serif;
+  font-style: normal;
+  background: #515151;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 2em;
+  color: rgb(255, 255, 255, 0.7);
+  transition: 0.5s;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 10em auto 0;
+  padding: 0 2em;
+}
+
+/* slider */
+
+.container {
+  background-color: rgb(51, 50, 50);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  padding: 2em 3em 6em;
+  border-radius: 2em;
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.6);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  /* scroll-snap-type: x mandatory;
+  overflow-x: auto; */
+}
+
+/* .title > p {
+  scroll-snap-align: start;
+  flex: none;
+} */
+
+.text1,
+.text2,
+.text3,
+.text4,
+.slide1,
+.slide2,
+.slide3,
+.slide4 {
+  opacity: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.slider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 2em;
+  box-shadow: 0px 3px 20px 0px rgba(64, 219, 96, 0.4);
+}
+
+.slides {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 2em;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+}
+
+.slide1 {
+  background-image: url(img/image-1.jpg);
+}
+
+.slide2 {
+  background-image: url(img/image-2.jpg);
+}
+
+.slide3 {
+  background-image: url(img/image-3.jpg);
+}
+
+.slide4 {
+  background-image: url(img/image-4.jpg);
+}
+
+#slide1:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3,
+#slide4:checked ~ .slider > .slide4,
+#slide1:checked ~ .bottom > .title > .text1,
+#slide2:checked ~ .bottom > .title > .text2,
+#slide3:checked ~ .bottom > .title > .text3,
+#slide4:checked ~ .bottom > .title > .text4 {
+  opacity: 1;
+  flex-shrink: 0;
+  transition: all 0.5s cubic-bezier(0, 0, 1, 1);
+  width: 100%;
+}
+
+/* наркомания */
+
+#slide1:checked ~ .bottom > .title > .text1 {
+  order: 1;
+}
+
+#slide1:checked ~ .bottom > .title > .text2 {
+  order: 2;
+}
+
+#slide1:checked ~ .bottom > .title > .text3 {
+  order: 3;
+}
+
+#slide1:checked ~ .bottom > .title > .text4 {
+  order: 4;
+}
+
+#slide2:checked ~ .bottom > .title > .text3 {
+  order: 2;
+}
+
+#slide2:checked ~ .bottom > .title > .text4 {
+  order: 3;
+}
+
+#slide2:checked ~ .bottom > .title > .text1 {
+  order: 4;
+}
+
+#slide3:checked ~ .bottom > .title > .text4 {
+  order: 2;
+}
+
+#slide3:checked ~ .bottom > .title > .text1 {
+  order: 3;
+}
+
+#slide3:checked ~ .bottom > .title > .text2 {
+  order: 4;
+}
+
+#slide4:checked ~ .bottom > .title > .text1 {
+  order: 2;
+}
+
+#slide4:checked ~ .bottom > .title > .text2 {
+  order: 3;
+}
+
+#slide4:checked ~ .bottom > .title > .text3 {
+  order: 4;
+}
+
+/* /наркомания */
+
+
+#slide1:checked ~ .bottom > .controls > label.controls-btn1 > .btn,
+#slide2:checked ~ .bottom > .controls > label.controls-btn2 > .btn,
+#slide3:checked ~ .bottom > .controls > label.controls-btn3 > .btn,
+#slide4:checked ~ .bottom > .controls > label.controls-btn4 > .btn {
+  background-color: transparent;
+}
+
+label .btn {
+  transition: opacity 10s;
+}
+
+label:active .btn{
+  opacity: .3;
+  transition: opacity 0s;
+}
+
+input {
+  display: none;
+}
+
+.controls {
+  display: flex;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 2.5em;
+  height: 3em;
+  max-width: 100%;
+  transition: 0.5s;
+}
+
+label:hover {
+  opacity: 0.6;
+}
+
+.btn {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  background-color: #40db60;
+  border: 0.13em solid #40db60;
+  border-radius: 50%;
+  transition: transform 0.5s;
+}
+
+/* media */
+
+@media (max-width: 960px) {
+  .wrapper {
+    padding: 0 1em;
+  }
+  .container {
+    padding: 1.5em 1.5em 4em;
+  }
+  p {
+    font-size: 1.7em;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 0;
+  }
+  .container {
+    padding: 1em 1em 4em;
+  }
+  .bottom {
+    flex-direction: column-reverse;
+    gap: 1em;
+  }
+  p {
+    font-size: 1.5em;
+  }
+  .title {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 570px) {
+  .bottom {
+    gap: 0.8em;
+  }
+  p {
+    font-size: 1.2em;
+  }
+  .btn {
+    width: 0.8em;
+    height: 0.8em;
+  }
+  label {
+    width: 1.5em;
+    height: 2em;
+  }
+  .wrapper {
+    margin: 8em auto 0;
+  }
+}
